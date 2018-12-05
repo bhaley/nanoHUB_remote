@@ -26,8 +26,9 @@ THE SOFTWARE.
 HUBzero is a registered trademark of Purdue University.
 """
 
-from urllib import urlencode
-from urllib2 import urlopen, Request, HTTPError
+from urllib.parse import urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 import sys, json, time
 
 url = r'https://nanohub.org/api'
@@ -49,7 +50,7 @@ def do_get(url, path, data, hdrs):
 
 def do_post(url, path, data, hdrs):
     """Send a POST to url/path; return JSON output"""
-    d = urlencode(data)
+    d = urlencode(data).encode('utf-8')
     r = Request('{0}/{1}'.format(url, path) , data=d, headers=hdrs)
     try:
         u = urlopen(r)

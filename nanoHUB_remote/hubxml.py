@@ -29,7 +29,7 @@ HUBzero is a registered trademark of Purdue University.
 import json
 import numpy as np
 import xml.etree.ElementTree as et
-from api import launch_tool, get_results
+from .api import launch_tool, get_results
 
 # Driver template for the drivergen tool
 template = """<?xml version="1.0"?>
